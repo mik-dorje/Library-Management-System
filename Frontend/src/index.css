@@ -1,0 +1,1044 @@
+@import "antd/dist/reset.css";
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap");
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+	--ck-color-image-caption-background: hsl(0, 0%, 97%);
+	--ck-color-image-caption-text: hsl(0, 0%, 20%);
+	--ck-color-mention-background: hsla(341, 100%, 30%, 0.1);
+	--ck-color-mention-text: hsl(341, 100%, 30%);
+	--ck-color-selector-caption-background: hsl(0, 0%, 97%);
+	--ck-color-selector-caption-text: hsl(0, 0%, 20%);
+	--ck-highlight-marker-blue: hsl(201, 97%, 72%);
+	--ck-highlight-marker-green: hsl(120, 93%, 68%);
+	--ck-highlight-marker-pink: hsl(345, 96%, 73%);
+	--ck-highlight-marker-yellow: hsl(60, 97%, 73%);
+	--ck-highlight-pen-green: hsl(112, 100%, 27%);
+	--ck-highlight-pen-red: hsl(0, 85%, 49%);
+	--ck-image-style-spacing: 1.5em;
+	--ck-inline-image-style-spacing: calc(var(--ck-image-style-spacing) / 2);
+	--ck-todo-list-checkmark-size: 16px;
+}
+
+*,
+::before,
+::after {
+	box-sizing: border-box;
+	border-width: 0;
+	border-style: solid;
+	margin: 0;
+	padding: 0;
+	line-height: 1.5;
+}
+
+@layer base {
+	html {
+		font-family: "Inter", system-ui, sans-serif;
+		line-height: inherit;
+	}
+}
+
+a {
+	font-weight: 500;
+	color: #646cff;
+	text-decoration: inherit;
+}
+
+a:hover {
+	color: #535bf2;
+}
+
+/* from ck editor 5 content styles */
+
+.ck.ck-content {
+	/* font-family: "PT Serif", serif; */
+	font-size: 16px;
+	line-height: 1.6;
+	padding-inline: 2em !important;
+}
+
+/* @ckeditor/ckeditor5-table/theme/tablecaption.css */
+.ck-content .table > figcaption {
+	display: table-caption;
+	caption-side: top;
+	word-break: break-word;
+	text-align: center;
+	color: var(--ck-color-selector-caption-text);
+	background-color: var(--ck-color-selector-caption-background);
+	padding: 0.6em;
+	font-size: 0.75em;
+	outline-offset: -1px;
+}
+/* @ckeditor/ckeditor5-table/theme/tablecolumnresize.css */
+.ck-content .table .ck-table-resized {
+	table-layout: fixed;
+}
+/* @ckeditor/ckeditor5-table/theme/tablecolumnresize.css */
+.ck-content .table table {
+	overflow: hidden;
+}
+/* @ckeditor/ckeditor5-table/theme/tablecolumnresize.css */
+.ck-content .table td,
+.ck-content .table th {
+	overflow-wrap: break-word;
+	position: relative;
+}
+/* @ckeditor/ckeditor5-table/theme/table.css */
+.ck-content .table {
+	margin: 0.9em auto;
+	display: table;
+}
+/* @ckeditor/ckeditor5-table/theme/table.css */
+.ck-content .table table {
+	border-collapse: collapse;
+	border-spacing: 0;
+	width: 100%;
+	height: 100%;
+	border: 1px double hsl(0, 0%, 70%);
+}
+/* @ckeditor/ckeditor5-table/theme/table.css */
+.ck-content .table table td,
+.ck-content .table table th {
+	min-width: 2em;
+	padding: 0.4em;
+	border: 1px solid hsl(0, 0%, 75%);
+}
+/* @ckeditor/ckeditor5-table/theme/table.css */
+.ck-content .table table th {
+	font-weight: bold;
+	background: hsla(0, 0%, 0%, 5%);
+}
+/* @ckeditor/ckeditor5-table/theme/table.css */
+.ck-content[dir="rtl"] .table th {
+	text-align: right;
+}
+/* @ckeditor/ckeditor5-table/theme/table.css */
+.ck-content[dir="ltr"] .table th {
+	text-align: left;
+}
+/* @ckeditor/ckeditor5-page-break/theme/pagebreak.css */
+.ck-content .page-break {
+	position: relative;
+	clear: both;
+	padding: 5px 0;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+}
+/* @ckeditor/ckeditor5-page-break/theme/pagebreak.css */
+.ck-content .page-break::after {
+	content: "";
+	position: absolute;
+	border-bottom: 2px dashed hsl(0, 0%, 77%);
+	width: 100%;
+}
+/* @ckeditor/ckeditor5-page-break/theme/pagebreak.css */
+.ck-content .page-break__label {
+	position: relative;
+	z-index: 1;
+	padding: 0.3em 0.6em;
+	display: block;
+	text-transform: uppercase;
+	border: 1px solid hsl(0, 0%, 77%);
+	border-radius: 2px;
+	font-family: Helvetica, Arial, Tahoma, Verdana, Sans-Serif;
+	font-size: 0.75em;
+	font-weight: bold;
+	color: hsl(0, 0%, 20%);
+	background: hsl(0, 0%, 100%);
+	box-shadow: 2px 2px 1px hsla(0, 0%, 0%, 0.15);
+	-webkit-user-select: none;
+	-moz-user-select: none;
+	-ms-user-select: none;
+	user-select: none;
+}
+/* @ckeditor/ckeditor5-list/theme/todolist.css */
+.ck-content .todo-list {
+	list-style: none;
+	margin-left: 10px;
+}
+/* @ckeditor/ckeditor5-list/theme/todolist.css */
+.ck-content .todo-list li {
+	position: relative;
+	margin-bottom: 5px;
+}
+/* @ckeditor/ckeditor5-list/theme/todolist.css */
+.ck-content .todo-list li .todo-list {
+	margin-top: 5px;
+}
+/* @ckeditor/ckeditor5-list/theme/todolist.css */
+.ck-content .todo-list .todo-list__label > input {
+	-webkit-appearance: none;
+	display: inline-block;
+	position: relative;
+	width: var(--ck-todo-list-checkmark-size);
+	height: var(--ck-todo-list-checkmark-size);
+	vertical-align: middle;
+	border: 0;
+	left: -25px;
+	margin-right: -15px;
+	right: 0;
+	margin-left: 0;
+}
+/* @ckeditor/ckeditor5-list/theme/todolist.css */
+.ck-content[dir="rtl"] .todo-list .todo-list__label > input {
+	left: 0;
+	margin-right: 0;
+	right: -25px;
+}
+/* @ckeditor/ckeditor5-list/theme/todolist.css */
+.ck-content .todo-list .todo-list__label > input::before {
+	display: block;
+	position: absolute;
+	box-sizing: border-box;
+	content: "";
+	width: 100%;
+	height: 100%;
+	border: 1px solid hsl(0, 0%, 20%);
+	border-radius: 2px;
+	transition: 250ms ease-in-out box-shadow;
+}
+/* @ckeditor/ckeditor5-list/theme/todolist.css */
+.ck-content .todo-list .todo-list__label > input::after {
+	display: block;
+	position: absolute;
+	box-sizing: content-box;
+	pointer-events: none;
+	content: "";
+	left: calc(var(--ck-todo-list-checkmark-size) / 3);
+	top: calc(var(--ck-todo-list-checkmark-size) / 5.3);
+	width: calc(var(--ck-todo-list-checkmark-size) / 5.3);
+	height: calc(var(--ck-todo-list-checkmark-size) / 2.6);
+	border-style: solid;
+	border-color: transparent;
+	border-width: 0 calc(var(--ck-todo-list-checkmark-size) / 8)
+		calc(var(--ck-todo-list-checkmark-size) / 8) 0;
+	transform: rotate(45deg);
+}
+/* @ckeditor/ckeditor5-list/theme/todolist.css */
+.ck-content .todo-list .todo-list__label > input[checked]::before {
+	background: hsl(126, 64%, 41%);
+	border-color: hsl(126, 64%, 41%);
+}
+/* @ckeditor/ckeditor5-list/theme/todolist.css */
+.ck-content .todo-list .todo-list__label > input[checked]::after {
+	border-color: hsl(0, 0%, 100%);
+}
+/* @ckeditor/ckeditor5-list/theme/todolist.css */
+.ck-content .todo-list .todo-list__label .todo-list__label__description {
+	vertical-align: middle;
+}
+/* @ckeditor/ckeditor5-list/theme/todolist.css */
+.ck-content
+	.todo-list
+	.todo-list__label.todo-list__label_without-description
+	input[type="checkbox"] {
+	position: absolute;
+}
+/* @ckeditor/ckeditor5-list/theme/todolist.css */
+.ck-editor__editable.ck-content .todo-list .todo-list__label > input,
+.ck-editor__editable.ck-content
+	.todo-list
+	.todo-list__label
+	> span[contenteditable="false"]
+	> input {
+	cursor: pointer;
+}
+/* @ckeditor/ckeditor5-list/theme/todolist.css */
+.ck-editor__editable.ck-content
+	.todo-list
+	.todo-list__label
+	> input:hover::before,
+.ck-editor__editable.ck-content
+	.todo-list
+	.todo-list__label
+	> span[contenteditable="false"]
+	> input:hover::before {
+	box-shadow: 0 0 0 5px hsla(0, 0%, 0%, 0.1);
+}
+/* @ckeditor/ckeditor5-list/theme/todolist.css */
+.ck-editor__editable.ck-content
+	.todo-list
+	.todo-list__label
+	> span[contenteditable="false"]
+	> input {
+	-webkit-appearance: none;
+	display: inline-block;
+	position: relative;
+	width: var(--ck-todo-list-checkmark-size);
+	height: var(--ck-todo-list-checkmark-size);
+	vertical-align: middle;
+	border: 0;
+	left: -25px;
+	margin-right: -15px;
+	right: 0;
+	margin-left: 0;
+}
+/* @ckeditor/ckeditor5-list/theme/todolist.css */
+.ck-editor__editable.ck-content[dir="rtl"]
+	.todo-list
+	.todo-list__label
+	> span[contenteditable="false"]
+	> input {
+	left: 0;
+	margin-right: 0;
+	right: -25px;
+	margin-left: -15px;
+}
+/* @ckeditor/ckeditor5-list/theme/todolist.css */
+.ck-editor__editable.ck-content
+	.todo-list
+	.todo-list__label
+	> span[contenteditable="false"]
+	> input::before {
+	display: block;
+	position: absolute;
+	box-sizing: border-box;
+	content: "";
+	width: 100%;
+	height: 100%;
+	border: 1px solid hsl(0, 0%, 20%);
+	border-radius: 2px;
+	transition: 250ms ease-in-out box-shadow;
+}
+/* @ckeditor/ckeditor5-list/theme/todolist.css */
+.ck-editor__editable.ck-content
+	.todo-list
+	.todo-list__label
+	> span[contenteditable="false"]
+	> input::after {
+	display: block;
+	position: absolute;
+	box-sizing: content-box;
+	pointer-events: none;
+	content: "";
+	left: calc(var(--ck-todo-list-checkmark-size) / 3);
+	top: calc(var(--ck-todo-list-checkmark-size) / 5.3);
+	width: calc(var(--ck-todo-list-checkmark-size) / 5.3);
+	height: calc(var(--ck-todo-list-checkmark-size) / 2.6);
+	border-style: solid;
+	border-color: transparent;
+	border-width: 0 calc(var(--ck-todo-list-checkmark-size) / 8)
+		calc(var(--ck-todo-list-checkmark-size) / 8) 0;
+	transform: rotate(45deg);
+}
+/* @ckeditor/ckeditor5-list/theme/todolist.css */
+.ck-editor__editable.ck-content
+	.todo-list
+	.todo-list__label
+	> span[contenteditable="false"]
+	> input[checked]::before {
+	background: hsl(126, 64%, 41%);
+	border-color: hsl(126, 64%, 41%);
+}
+/* @ckeditor/ckeditor5-list/theme/todolist.css */
+.ck-editor__editable.ck-content
+	.todo-list
+	.todo-list__label
+	> span[contenteditable="false"]
+	> input[checked]::after {
+	border-color: hsl(0, 0%, 100%);
+}
+/* @ckeditor/ckeditor5-list/theme/todolist.css */
+.ck-editor__editable.ck-content
+	.todo-list
+	.todo-list__label.todo-list__label_without-description
+	input[type="checkbox"] {
+	position: absolute;
+}
+/* @ckeditor/ckeditor5-media-embed/theme/mediaembed.css */
+.ck-content .media {
+	clear: both;
+	margin: 0.9em 0;
+	display: block;
+	min-width: 15em;
+}
+/* @ckeditor/ckeditor5-image/theme/imageresize.css */
+.ck-content img.image_resized {
+	height: auto;
+}
+/* @ckeditor/ckeditor5-image/theme/imageresize.css */
+.ck-content .image.image_resized {
+	max-width: 100%;
+	display: block;
+	box-sizing: border-box;
+}
+/* @ckeditor/ckeditor5-image/theme/imageresize.css */
+.ck-content .image.image_resized img {
+	width: 100%;
+}
+/* @ckeditor/ckeditor5-image/theme/imageresize.css */
+.ck-content .image.image_resized > figcaption {
+	display: block;
+}
+/* @ckeditor/ckeditor5-image/theme/image.css */
+.ck-content .image {
+	display: table;
+	clear: both;
+	text-align: center;
+	margin: 0.9em auto;
+	min-width: 50px;
+}
+/* @ckeditor/ckeditor5-image/theme/image.css */
+.ck-content .image img {
+	display: block;
+	margin: 0 auto;
+	max-width: 100%;
+	min-width: 100%;
+	height: auto;
+}
+/* @ckeditor/ckeditor5-image/theme/image.css */
+.ck-content .image-inline {
+	display: inline-flex;
+	max-width: 100%;
+	align-items: flex-start;
+}
+/* @ckeditor/ckeditor5-image/theme/image.css */
+.ck-content .image-inline picture {
+	display: flex;
+}
+/* @ckeditor/ckeditor5-image/theme/image.css */
+.ck-content .image-inline picture,
+.ck-content .image-inline img {
+	flex-grow: 1;
+	flex-shrink: 1;
+	max-width: 100%;
+}
+/* @ckeditor/ckeditor5-image/theme/imagecaption.css */
+.ck-content .image > figcaption {
+	display: table-caption;
+	caption-side: bottom;
+	word-break: break-word;
+	color: var(--ck-color-image-caption-text);
+	background-color: var(--ck-color-image-caption-background);
+	padding: 0.6em;
+	font-size: 0.75em;
+	outline-offset: -1px;
+}
+/* @ckeditor/ckeditor5-list/theme/list.css */
+.ck-content ol {
+	list-style-type: decimal;
+}
+/* @ckeditor/ckeditor5-list/theme/list.css */
+.ck-content ol ol {
+	list-style-type: lower-latin;
+}
+/* @ckeditor/ckeditor5-list/theme/list.css */
+.ck-content ol ol ol {
+	list-style-type: lower-roman;
+}
+/* @ckeditor/ckeditor5-list/theme/list.css */
+.ck-content ol ol ol ol {
+	list-style-type: upper-latin;
+}
+/* @ckeditor/ckeditor5-list/theme/list.css */
+.ck-content ol ol ol ol ol {
+	list-style-type: upper-roman;
+}
+/* @ckeditor/ckeditor5-list/theme/list.css */
+.ck-content ul {
+	list-style-type: disc;
+}
+/* @ckeditor/ckeditor5-list/theme/list.css */
+.ck-content ul ul {
+	list-style-type: circle;
+}
+/* @ckeditor/ckeditor5-list/theme/list.css */
+.ck-content ul ul ul {
+	list-style-type: square;
+}
+/* @ckeditor/ckeditor5-list/theme/list.css */
+.ck-content ul ul ul ul {
+	list-style-type: square;
+}
+/* @ckeditor/ckeditor5-image/theme/imagestyle.css */
+.ck-content .image-style-block-align-left,
+.ck-content .image-style-block-align-right {
+	max-width: calc(100% - var(--ck-image-style-spacing));
+}
+/* @ckeditor/ckeditor5-image/theme/imagestyle.css */
+.ck-content .image-style-align-left,
+.ck-content .image-style-align-right {
+	clear: none;
+}
+/* @ckeditor/ckeditor5-image/theme/imagestyle.css */
+.ck-content .image-style-side {
+	float: right;
+	margin-left: var(--ck-image-style-spacing);
+	max-width: 50%;
+}
+/* @ckeditor/ckeditor5-image/theme/imagestyle.css */
+.ck-content .image-style-align-left {
+	float: left;
+	margin-right: var(--ck-image-style-spacing);
+}
+/* @ckeditor/ckeditor5-image/theme/imagestyle.css */
+.ck-content .image-style-align-center {
+	margin-left: auto;
+	margin-right: auto;
+}
+/* @ckeditor/ckeditor5-image/theme/imagestyle.css */
+.ck-content .image-style-align-right {
+	float: right;
+	margin-left: var(--ck-image-style-spacing);
+}
+/* @ckeditor/ckeditor5-image/theme/imagestyle.css */
+.ck-content .image-style-block-align-right {
+	margin-right: 0;
+	margin-left: auto;
+}
+/* @ckeditor/ckeditor5-image/theme/imagestyle.css */
+.ck-content .image-style-block-align-left {
+	margin-left: 0;
+	margin-right: auto;
+}
+/* @ckeditor/ckeditor5-image/theme/imagestyle.css */
+.ck-content p + .image-style-align-left,
+.ck-content p + .image-style-align-right,
+.ck-content p + .image-style-side {
+	margin-top: 0;
+}
+/* @ckeditor/ckeditor5-image/theme/imagestyle.css */
+.ck-content .image-inline.image-style-align-left,
+.ck-content .image-inline.image-style-align-right {
+	margin-top: var(--ck-inline-image-style-spacing);
+	margin-bottom: var(--ck-inline-image-style-spacing);
+}
+/* @ckeditor/ckeditor5-image/theme/imagestyle.css */
+.ck-content .image-inline.image-style-align-left {
+	margin-right: var(--ck-inline-image-style-spacing);
+}
+/* @ckeditor/ckeditor5-image/theme/imagestyle.css */
+.ck-content .image-inline.image-style-align-right {
+	margin-left: var(--ck-inline-image-style-spacing);
+}
+/* @ckeditor/ckeditor5-highlight/theme/highlight.css */
+.ck-content .marker-yellow {
+	background-color: var(--ck-highlight-marker-yellow);
+}
+/* @ckeditor/ckeditor5-highlight/theme/highlight.css */
+.ck-content .marker-green {
+	background-color: var(--ck-highlight-marker-green);
+}
+/* @ckeditor/ckeditor5-highlight/theme/highlight.css */
+.ck-content .marker-pink {
+	background-color: var(--ck-highlight-marker-pink);
+}
+/* @ckeditor/ckeditor5-highlight/theme/highlight.css */
+.ck-content .marker-blue {
+	background-color: var(--ck-highlight-marker-blue);
+}
+/* @ckeditor/ckeditor5-highlight/theme/highlight.css */
+.ck-content .pen-red {
+	color: var(--ck-highlight-pen-red);
+	background-color: transparent;
+}
+/* @ckeditor/ckeditor5-highlight/theme/highlight.css */
+.ck-content .pen-green {
+	color: var(--ck-highlight-pen-green);
+	background-color: transparent;
+}
+/* @ckeditor/ckeditor5-block-quote/theme/blockquote.css */
+.ck-content blockquote {
+	overflow: hidden;
+	padding-right: 1.5em;
+	padding-left: 1.5em;
+	margin-left: 0;
+	margin-right: 0;
+	font-style: italic;
+	border-left: solid 5px hsl(0, 0%, 80%);
+}
+/* @ckeditor/ckeditor5-block-quote/theme/blockquote.css */
+.ck-content[dir="rtl"] blockquote {
+	border-left: 0;
+	border-right: solid 5px hsl(0, 0%, 80%);
+}
+/* @ckeditor/ckeditor5-basic-styles/theme/code.css */
+.ck-content code {
+	background-color: hsla(0, 0%, 78%, 0.3);
+	padding: 0.15em;
+	border-radius: 2px;
+}
+/* @ckeditor/ckeditor5-font/theme/fontsize.css */
+.ck-content .text-tiny {
+	font-size: 0.7em;
+}
+/* @ckeditor/ckeditor5-font/theme/fontsize.css */
+.ck-content .text-small {
+	font-size: 0.85em;
+}
+/* @ckeditor/ckeditor5-font/theme/fontsize.css */
+.ck-content .text-big {
+	font-size: 1.4em;
+}
+/* @ckeditor/ckeditor5-font/theme/fontsize.css */
+.ck-content .text-huge {
+	font-size: 1.8em;
+}
+/* @ckeditor/ckeditor5-mention/theme/mention.css */
+.ck-content .mention {
+	background: var(--ck-color-mention-background);
+	color: var(--ck-color-mention-text);
+}
+/* @ckeditor/ckeditor5-horizontal-line/theme/horizontalline.css */
+.ck-content hr {
+	margin: 15px 0;
+	height: 2px !important;
+	background: hsl(0, 0%, 87%);
+	border: 0;
+}
+/* @ckeditor/ckeditor5-code-block/theme/codeblock.css */
+.ck-content pre {
+	padding: 1em;
+	color: hsl(0, 0%, 20.8%);
+	background: hsla(0, 0%, 78%, 0.3);
+	border: 1px solid hsl(0, 0%, 77%);
+	border-radius: 2px;
+	text-align: left;
+	direction: ltr;
+	tab-size: 4;
+	white-space: pre-wrap;
+	font-style: normal;
+	min-width: 200px;
+}
+/* @ckeditor/ckeditor5-code-block/theme/codeblock.css */
+.ck-content pre code {
+	background: unset;
+	padding: 0;
+	border-radius: 0;
+}
+@media print {
+	/* @ckeditor/ckeditor5-page-break/theme/pagebreak.css */
+	.ck-content .page-break {
+		padding: 0;
+	}
+	/* @ckeditor/ckeditor5-page-break/theme/pagebreak.css */
+	.ck-content .page-break::after {
+		display: none;
+	}
+}
+
+/* For styles feature in editor toolbar */
+.ck.ck-content .category {
+	font-family: "Bebas Neue";
+	font-size: 20px;
+	font-weight: bold;
+	color: #d1d1d1;
+	letter-spacing: 10px;
+	margin: 0;
+	padding: 0;
+}
+
+.ck.ck-content .document-title {
+	font-family: "Bebas Neue";
+	font-size: 48px;
+	font-weight: bold;
+	margin: 0;
+	padding: 0;
+	border: 0;
+}
+
+.ck-content .document-subtitle {
+	font-size: 20px;
+	color: #e91e63;
+	margin: 0 0 1em;
+	font-weight: normal;
+	padding: 0;
+}
+
+.ck-content .info-box {
+	--background-size: 30px;
+	--background-color: #e91e63;
+	padding: 1.2em 2em;
+	border: 1px solid var(--background-color);
+	background: linear-gradient(
+			135deg,
+			var(--background-color) 0%,
+			var(--background-color) var(--background-size),
+			transparent var(--background-size)
+		),
+		linear-gradient(
+			135deg,
+			transparent calc(100% - var(--background-size)),
+			var(--background-color) calc(100% - var(--background-size)),
+			var(--background-color)
+		);
+	border-radius: 10px;
+	margin-block: 1.2em;
+	box-shadow: 5px 5px 0 #ffe6ef;
+}
+
+.ck-content span.marker {
+	background: yellow;
+	padding: 4px;
+}
+
+.ck-content span.spoiler {
+	background: #000;
+	color: #000;
+	padding: 4px;
+}
+
+.ck-content span.spoiler:hover {
+	background: #000;
+	color: #fff;
+}
+
+.ck-content .fancy-code {
+	border: 0;
+	padding: 0.6em 0.8em;
+	border-radius: 10px;
+	font-size: 0.9em;
+	margin-block: 1.2em;
+}
+
+.ck-content .fancy-code::before {
+	content: "";
+	display: block;
+	height: 13px;
+	background: url(data:image/svg+xml;base64,PHN2ZyBmaWxsPSJub25lIiB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCA1NCAxMyI+CiAgPGNpcmNsZSBjeD0iNi41IiBjeT0iNi41IiByPSI2LjUiIGZpbGw9IiNGMzZCNUMiLz4KICA8Y2lyY2xlIGN4PSIyNi41IiBjeT0iNi41IiByPSI2LjUiIGZpbGw9IiNGOUJFNEQiLz4KICA8Y2lyY2xlIGN4PSI0Ny41IiBjeT0iNi41IiByPSI2LjUiIGZpbGw9IiM1NkM0NTMiLz4KPC9zdmc+Cg==);
+	margin-bottom: 8px;
+	background-repeat: no-repeat;
+}
+
+.ck-content .fancy-code-dark {
+	background: #272822;
+	color: #fff;
+	box-shadow: 5px 5px 0 #0000001f;
+}
+
+.ck-content .fancy-code-bright {
+	background: #dddfe0;
+	color: #000;
+	box-shadow: 5px 5px 0 #b3b3b3;
+}
+
+.ck-content .side-quote {
+	font-family: "Bebas Neue";
+	font-style: normal;
+	float: right;
+	width: 35%;
+	position: relative;
+	border: 0;
+	overflow: visible;
+	z-index: 1;
+	margin-left: 1em;
+}
+
+.ck-content .side-quote::before {
+	content: "“";
+	position: absolute;
+	top: -27px;
+	left: -10px;
+	display: block;
+	font-size: 185px;
+	color: #e7e7e7;
+	z-index: -1;
+	line-height: 1;
+}
+
+.ck-content .side-quote p {
+	font-size: 2em;
+	line-height: 1;
+}
+
+.ck-content .side-quote p:last-child:not(:first-child) {
+	font-size: 1.3em;
+	text-align: right;
+	color: #555;
+}
+
+/* For heading feature in editor toolbar */
+
+.ck-content .ck-heading_paragraph {
+	font-size: 16px;
+}
+.ck-content .ck-heading_heading1 {
+	font-size: 34px;
+}
+.ck-content .ck-heading_heading2 {
+	font-size: 32px;
+}
+.ck-content .ck-heading_heading3 {
+	font-size: 26px;
+}
+.ck-content .ck-heading_heading4 {
+	font-size: 24px;
+}
+.ck-content .ck-heading_heading5 {
+	font-size: 22px;
+}
+.ck-content .ck-heading_heading6 {
+	font-size: 18px;
+}
+
+/* Single Page Styles */
+
+.single-book {
+	min-height: 100%;
+	width: 100%;
+	position: relative;
+}
+
+.single-book::before {
+	content: "";
+	position: absolute;
+	top: 0;
+	left: 0;
+	height: 100%;
+	width: 100%;
+	background: url(../src/assets/images/threebooks.jpg);
+	background-size: cover;
+	filter: grayscale(50%) blur(2px);
+}
+
+.main-book-container {
+	margin-top: 10px;
+	padding: 8px;
+	height: 300px;
+}
+
+.book-details {
+	background: rgba(255, 255, 255, 0.25);
+	box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
+	backdrop-filter: blur(4px);
+	-webkit-backdrop-filter: blur(4px);
+	border-radius: 10px;
+	border: 1px solid rgb(219, 214, 214);
+	font-family: "Moon Dance", cursive;
+	cursor: pointer;
+}
+
+.ant-divider-horizontal.ant-divider-with-text-center::before,
+.ant-divider-horizontal.ant-divider-with-text-center::after {
+	border-top: 3px solid rgb(149, 147, 147);
+}
+
+/* ------------------------------------------------------ */
+
+.book-3D {
+	min-height: 72vh;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	border: 1px solid rgb(219, 214, 214);
+	border-radius: 10px;
+	margin: 4px;
+	cursor: pointer;
+}
+/* to apply image effects only on background image */
+.book-3D::before {
+	content: "";
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	background: url(../src/assets/images/threebooks.jpg);
+	background-size: cover;
+	filter: grayscale(50%) blur(2px);
+}
+
+.container {
+	height: 100%;
+	width: 100%;
+	position: absolute;
+	perspective: 1000px;
+	perspective-origin: 50% 50%;
+}
+
+.box {
+	/* background-color: purple; */
+	height: 90%;
+	width: 90%;
+	transform-style: preserve-3d;
+	/* animation: spin 10s infinite linear; */
+	/* transform: rotateY(40deg) rotateX(-35deg) rotateZ(40deg); */
+}
+
+@keyframes spin {
+	from {
+		transform: rotateX(0deg) rotateY(0) rotateZ(0);
+	}
+	to {
+		transform: rotateX(360deg) rotateY(360deg) rotateZ(360deg);
+	}
+}
+
+.box > * {
+	position: absolute;
+	height: 70%;
+	width: 45%;
+	/* text-align: center; */
+	/* padding: 100px 0px; */
+	color: white;
+	background-color: rgba(0, 0, 0, 0.5);
+	border: 2px solid rgb(50, 50, 49);
+	font-size: 24px;
+	box-sizing: border-box;
+}
+
+.left {
+	background-color: rgb(29, 28, 28);
+	top: 50%;
+	left: 25%;
+	transform: translate(-50%, -50%) rotateY(90deg);
+	width: 26px;
+	transform-origin: right;
+}
+
+.right {
+	background-color: white;
+	border: 1px solid white;
+	top: 50%;
+	left: 69%;
+	width: 23px;
+	/* left: 125px; */
+	transform-origin: right;
+	transform: translate(-50%, -50%) rotateY(90deg);
+}
+
+.top {
+	transform-origin: right;
+	background-color: white;
+	border: 1px solid white;
+	top: 15.5%;
+	left: 50%;
+	height: 25px;
+	width: 43.5%;
+	transform: translate(-50%, -50%) translateZ(13px) rotateX(90deg);
+}
+.bottom {
+	transform-origin: right;
+	background-color: white;
+	border: 1px solid white;
+	bottom: 9%;
+	left: 50%;
+	height: 25px;
+	width: 43.5%;
+	transform: translate(-50%, -50%) translateZ(13px) rotateX(90deg);
+}
+.back {
+	top: 50%;
+	left: 50%;
+	background-color: #0c0c0d;
+	transform: translate(-50%, -50%) rotateX(180deg) rotateZ(180deg);
+}
+
+.front {
+	top: 50%;
+	left: 50%;
+	background-color: #0c0c0d;
+	transform: translateZ(25px) translate(-50%, -50%);
+	height: 70%;
+	object-fit: cover;
+	padding: 1;
+}
+
+.rent-book-form {
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%, -50%);
+	padding: 15px;
+	/* min-height: 75%; */
+	min-width: 60%;
+
+	background: rgba(255, 255, 255, 0.25);
+	box-shadow: "0 8px 32px 0 #e5e1e0";
+
+	backdrop-filter: blur(4px);
+	-webkit-backdrop-filter: blur(4px);
+	border-radius: 10px;
+	border: 1px solid rgb(219, 214, 214);
+}
+
+/* background for all layout outlet */
+
+.content {
+	position: relative;
+}
+.content::before {
+	content: "";
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	filter: grayscale(60%) blur(3px);
+	background: url(./images/threebooks.jpg);
+	background-size: contain;
+}
+
+.loader-box {
+	min-height: 75vh;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	/* background-color: red; */
+}
+.loader,
+.loader:before,
+.loader:after {
+	border-radius: 50%;
+	width: 2.5em;
+	height: 2.5em;
+	animation-fill-mode: both;
+	animation: bblFadInOut 1.8s infinite ease-in-out;
+}
+.loader {
+	color: rgb(238, 234, 234);
+	font-size: 7px;
+	position: relative;
+	text-indent: -9999em;
+	transform: translateZ(0);
+	animation-delay: -0.16s;
+}
+.loader:before,
+.loader:after {
+	content: "";
+	position: absolute;
+	top: 0;
+}
+.loader:before {
+	left: -3.5em;
+	animation-delay: -0.32s;
+}
+.loader:after {
+	left: 3.5em;
+}
+
+@keyframes bblFadInOut {
+	0%,
+	80%,
+	100% {
+		box-shadow: 0 2.5em 0 -1.3em;
+	}
+	40% {
+		box-shadow: 0 2.5em 0 0;
+	}
+}
+
+.ant-table.ant-table-bordered
+	> .ant-table-container
+	> .ant-table-content
+	> table
+	> thead
+	> tr
+	> th {
+	background: rgb(237, 230, 241);
+}
+
+/* ----------------------Register & Login CSS------------ */
+
+.form-container {
+	background: rgba(255, 255, 255, 0.2);
+	border-radius: 16px;
+	box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+	backdrop-filter: blur(5px);
+	-webkit-backdrop-filter: blur(5px);
+	border: 1px solid rgba(255, 255, 255, 0.3);
+}
