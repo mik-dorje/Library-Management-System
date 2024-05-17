@@ -91,6 +91,7 @@ const updateBook = async (req, res) => {
   if (req.body?.description) book.description = req.body?.description;
   if (req.body?.email) book.email = req.body?.email;
   if (req.body?.mobile) book.mobile = req.body?.mobile;
+  if (req.body?.category) book.category = req.body?.category;
   if (req.body?.totalPage) book.totalPage = req.body?.totalPage;
   if (req.body?.stock) book.stock = req.body?.stock;
   if (req.body?.publishedDate) book.publishedDate = req.body.publishedDate;
