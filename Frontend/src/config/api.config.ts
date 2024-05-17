@@ -1,11 +1,12 @@
 const apiEndpointMap = {
-	"your-domain": {
+	"https://library-management-system-one-puce.vercel.app": {
 		development: "http://localhost:3500",
 		production: "https://book-rental-backend.vercel.app",
 	},
 };
 
-const defaultApiEndpointObj = apiEndpointMap["your-domain"];
+const defaultApiEndpointObj =
+	apiEndpointMap["https://library-management-system-one-puce.vercel.app"];
 
 export const getApiEndpoint = () => {
 	const domain = window.location.hostname;
