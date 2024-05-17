@@ -1,7 +1,7 @@
 const apiEndpointMap = {
 	"your-domain": {
 		development: "http://localhost:3500",
-		production: "https://your-backend-server/bookrental",
+		production: "https://book-rental-backend.vercel.app",
 	},
 };
 
